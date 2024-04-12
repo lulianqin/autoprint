@@ -1,0 +1,56 @@
+<view class="top">
+	<view class="position">
+		<view class="info" bindtap="searchPrinter">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="list">
+	<view class="tips">点击下列打印机名称可选择打印机</view>
+	<block wx:if="{{printer.length>0}}" wx:for="{{printer}}">
+		<view class="item-printer" bindtap="selectPrint" data-id="{{item.id}}">
+			<view class="printer-text">
+				<text class="item-field-name">打印机名称：</text>
+				<text class="item-field-value">{{item.name}} ({{item.online||'查询中...'}})</text>
+			</view>
+			<view class="printer-text">
+				<text class="item-field-name">所属打印点：</text>
+				<text class="item-field-value">{{item.shop_name}}</text>
+			</view>
+			<view class="printer-text">
+				<view class="item-field-name">营业时间：</view>
+				<view class="item-field-value">
+					<block wx:for="{{item.business_hours}}" wx:for-item="business">
+						{{business.opening}} - {{business.close}}{{item.functions.length}}
+					</block>
+				</view>
+			</view>
+			<view class="printer-text">
+				<text class="item-field-name">支持打印：</text>
+				<text class="item-field-value">
+					<text>{{item.functions.black_white==1?"黑白打印":""}}{{item.functions.colorful==1?"/彩色打印":""}}{{item.functions.double_side==1?"/单面打印":""}}{{item.functions.single_side==1?"/双面打印":""}}</text>
+				</text>
+			</view>
+			<view class="printer-text" wx:if="{{item.tel}}">
+				<text class="item-field-name">联系客服：</text>
+				<text class="item-field-value" catchtap="showCustomerQrcode" data-index="{{index}}">{{item.tel}}</text>
+			</view>
+			<view class="printer-text">
+				<text class="item-field-name">地图导航：</text>
+				<text class="item-field-value" catchtap="navigatorToShop" data-index="{{index}}">点击导航去店里(距离: {{item.distance}}米)</text>
+			</view>
+			<view class="printer-text text-red" wx:if="{{item.tips}}">
+				<text class="item-field-name">本店公告：</text>
+				<text class="item-field-value">{{item.tips}}</text>
+			</view>
+		</view>
+	</block>
+	<block wx:if="{{printer.length == 0}}">
+		<view class="no-data">暂无数据</view>
+	</block>
+</view>
+<view class="blank100"></view>

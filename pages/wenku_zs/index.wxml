@@ -1,0 +1,34 @@
+<view class="top">
+  <view class="position">
+    <view class="info">
+      <view>
+        <view class="iconfont icon-position" style="padding-right:5px;"></view>
+        <text>{{printer_name}}</text>
+      </view>
+      <view class="iconfont icon-right"></view>
+    </view>
+  </view>
+</view>
+<view class="box-1">
+  <navigator url="../print_list/index" open-type="redirect" class="item">
+    <image src="../../images/print_list@2x.png" mode="widthFix"></image>
+    <text>打印列表</text>
+  </navigator>
+  <navigator url="../shop/index" class="item">
+    <image src="../../images/nearby@2x.png" mode="widthFix"></image>
+    <text>附近打印点</text>
+  </navigator>
+</view>
+<view class="box-2">
+  <view class="title">
+    <text class="text">文库打印</text>
+    <text class="e_text">Library printing</text>
+  </view>
+  <view class="bin_view_css">
+    <view class="upload-done" bindtap="yulan">预览</view>
+    <view class="upload-done" bindtap="daying">打印</view>
+  </view>
+</view>
+
+
+<view class="blank100"></view>

@@ -1,0 +1,96 @@
+<view class="top">
+	<view class="position">
+		<view class="info">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="box-1">
+	<navigator url="../print_list/index" class="item">
+		<image src="../../images/print_list@2x.png" mode="widthFix"></image>
+		<text>打印列表</text>
+	</navigator>
+	<navigator url="../shop/index" class="item">
+		<image src="../../images/nearby@2x.png" mode="widthFix"></image>
+		<text>附近打印点</text>
+	</navigator>
+</view>
+<view class="btn-box">
+	<view class="btn-upload" bindtap="hasPhoto">已有照片直接打印</view>
+	<view class="btn-upload" bindtap="makePhoto">拍照/AI处理背景</view>
+</view>
+<view style="padding-top:15px;">
+	<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+</view>
+<view class="box-4">
+	<view class="title">
+		<text class="text">打印说明</text>
+		<text class="e_text">INSTRUCTIONS</text>
+	</view>
+	<view class="instructions">
+		<image src="../../images/img_liu_cheng@2x.png" mode="widthFix"></image>
+	</view>
+</view>
+
+<!-- 尺寸选择 dialog -->
+<view class="mask" hidden="{{hideSelectSize}}"></view>
+<view class="print-setting" hidden="{{hideSelectSize}}">
+	<view class="dialog-box">
+		<view class="iconfont icon-close" bindtap="close"
+			style="font-size:30px;color:#666;position:absolute;top:-40px; right:0;"></view>
+		<view class="dialog-title">打印尺寸</view>
+		<view class="dialog-content">
+			<view class="dialog-item" hidden="{{hideSelectSizeItem}}">
+				<block wx:for="{{sizeSelect}}" wx:for-item="item" wx:key="index">
+					<view class="btn-upload-s" bindtap="s_con" data-pid="{{index}}" data-type="1">{{item.value}}</view>
+				</block>
+				<!-- <view class="left">打印尺寸</view>
+				<view class="right" style="padding:5px 0;position:relative;">
+					<picker class="picker-single" header-text="打印尺寸" mode="selector" range="{{sizeSelect}}" range-key="value"
+						bindchange="selectedSize" value="{{selectedIndex}}">
+						<view class="picker-single-value">
+							<text style="flex-grow:1;text-align:center;color:#4A74EE">{{sizeSelect[selectedIndex]['value']}}</text>
+							<text style="padding:0 10px;color:#4A74EE;position:absolute;right:0;top:8px;"
+								class="iconfont icon-down"></text>
+						</view>
+					</picker>
+				</view> -->
+			</view>
+			<view class="dialog-item" hidden="{{hideSelectBackground}}">
+				<block wx:for="{{sizeAndBackgroundSelect}}" wx:for-item="item" wx:key="index">
+					<view class="btn-upload-s" bindtap="s_con" data-pid="{{index}}" data-type="2">{{item.name}}</view>
+				</block>
+				<!-- <view class="left">照片尺寸和背景</view>
+				<view class="right" style="padding:5px 0;position:relative;">
+					<picker class="picker-single" header-text="照片背景" mode="selector" range="{{sizeAndBackgroundSelect}}" range-key="name" bindchange="selectedSizeAndBackground" value="{{selectedSizeAndBackgroundIndex}}">
+						<view class="picker-single-value">
+							<text style="flex-grow:1;text-align:center;color:#4A74EE">{{sizeAndBackgroundSelect[selectedSizeAndBackgroundIndex]['name']}}</text>
+							<text style="padding:0 10px;color:#4A74EE;position:absolute;right:0;top:8px;" class="iconfont icon-down"></text>
+						</view>
+					</picker>
+				</view> -->
+			</view>
+		</view>
+		<!-- <view class="dialog-btn">
+			<view class="dialog-confirm-btn" bindtap="confirmSize">设置完成</view>
+		</view> -->
+	</view>
+</view>
+<!-- 图片来源 dialog -->
+<view class="mask" hidden="{{hideSelectSource}}"></view>
+<view class="print-setting" hidden="{{hideSelectSource}}">
+	<view class="dialog-box">
+		<view class="iconfont icon-close" bindtap="close"
+			style="font-size:30px;color:#666;position:absolute;top:-40px; right:0;"></view>
+		<view class="dialog-title">选择证件照</view>
+		<view class="dialog-content">
+			<view class="dialog-center-text" bindtap="choosePhoto" data-type="1">手机拍照</view>
+			<view class="dialog-center-text" bindtap="choosePhoto" data-type="2">微信照片</view>
+			<view class="dialog-center-text" bindtap="choosePhoto" data-type="3">本地照片</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,279 @@
+<view class="top">
+	<view class="position">
+		<view class="info">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="box-1">
+	<view class="item">
+		<image src="../../images/print_list@2x.png" mode="widthFix"></image>
+		<text>打印列表</text>
+	</view>
+	<navigator url="../shop/index" class="item">
+		<image src="../../images/nearby@2x.png" mode="widthFix"></image>
+		<text>附近打印点</text>
+	</navigator>
+</view>
+<view class="list">
+	<block wx:for="{{lists}}" wx:key="id">
+		<view class="item" wx:if="{{item.page_type==1}}">
+			<view class="file">
+				<view class="file-left">
+					<view class="file-icon-out" style="background-color:{{ext[item.ext]['color']}}">
+						<image src="{{ext[item.ext]['icon']}}" class="file-icon" mode="widthFix"></image>
+					</view>
+					<view class="file-title">
+						<text class="file-title-text">{{item.filename}}</text>
+						<text class="file-title-info">文件共{{item.pages}}页</text>
+					</view>
+				</view>
+				<view class="file-right">
+					<view class="file-review" bindtap="preview" data-index="{{index}}">
+						<text class="iconfont icon-preview"></text>
+						<text>预览</text>
+					</view>
+					<view class="file-delete">
+						<text class="iconfont icon-delete" bindtap="deleteFile" data-id="{{item.id}}"></text>
+					</view>
+				</view>
+			</view>
+			<view class="print">
+				<view class="print-left">
+					<view class="print-text">
+						<view class="f-color-primary">
+							<text class="p-number">{{item.page_end-item.page_start+1}}</text>
+							<text>页</text>
+						</view>
+						<view class="f-color-secondary">打印页数</view>
+					</view>
+					<view class="print-text">
+						<view class="f-color-primary"><text class="p-number">{{item.copies}}</text><text>份</text></view>
+						<view class="f-color-secondary">打印份数</view>
+					</view>
+				</view>
+				<view class="pirnt-selected-param">
+					<view wx:if="{{item.filename=='身份证.png'}}">
+						{{item.color==1?"黑白":"彩色"}}
+					</view>
+					<view wx:else>
+						{{item.page_type==1?"A4":"照片"}}/{{item.side==1?"单面":"双面"}}/{{item.orientation==1?"纵向":"横向"}}/{{item.color==1?"黑白":"彩色"}}
+					</view>
+
+					<view class="print-right">
+						<view class="print-param" bindtap="setting" data-index="{{index}}">设置打印参数</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="item-photo" wx:if="{{item.page_type==2}}">
+			<view class="print-photo-left">
+				<block wx:if="{{item.filename=='证件照.jpg'}}">
+					<view class="photo-thumb-box">
+						<view class="photo-thumb">
+							<image src="{{item.file}}" mode="widthFix" style="width:80px;border:1px solid #ddd;">
+							</image>
+						</view>
+					</view>
+				</block>
+				<block wx:else>
+					<view class="photo-thumb-box" bindtap="editPhoto" data-index="{{index}}">
+						<view class="photo-thumb">
+							<image src="{{item.file}}" mode="widthFix" style="width:80px;"></image>
+						</view>
+						<view class="photo-text">
+							<text>点击照片编辑</text>
+						</view>
+					</view>
+				</block>
+				<view class="print-text">
+					<block wx:if="{{item.size=='c1'}}">
+						<view class="f-color-secondary">小1寸</view>
+					</block>
+					<block wx:if="{{item.size=='c1x'}}">
+						<view class="f-color-secondary">1寸</view>
+					</block>
+					<block wx:if="{{item.size=='c2'}}">
+						<view class="f-color-secondary">小2寸</view>
+					</block>
+					<block wx:if="{{item.size=='c2x'}}">
+						<view class="f-color-secondary">2寸</view>
+					</block>
+					<block wx:if="{{item.size=='c6'}}">
+						<view class="f-color-secondary">6寸</view>
+					</block>
+					<view class="f-color-primary"><text class="p-number">{{item.copies}}</text><text>份</text></view>
+					<view class="f-color-secondary">打印份数</view>
+				</view>
+			</view>
+			<view class="print-photo-right">
+				<view class="file-right">
+					<view class="file-review" bindtap="preview" data-index="{{index}}">
+						<text class="iconfont icon-preview"></text>
+						<text> 预览</text>
+					</view>
+					<view class="file-delete">
+						<text class="iconfont icon-delete" bindtap="deleteFile" data-id="{{item.id}}"></text>
+					</view>
+				</view>
+				<view class="print-param" bindtap="setting" data-index="{{index}}">设置打印参数</view>
+			</view>
+		</view>
+	</block>
+</view>
+<view style="padding-bottom:15px;">
+	<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+</view>
+<view class="print-type-box">
+	<view class="item on">
+		<view class="type-text">现场打印</view>
+		<view class="printer-name">
+			<text>{{printer_name}}</text>
+		</view>
+	</view>
+	<view class="item">
+		<view class="type-text">自助取件</view>
+		<view class="printer-name">{{printer_name}}</view>
+	</view>
+</view> 
+<view class="add-file-box">
+	<view class="add-file" bindtap="addFile"><text class="iconfont icon-plus"></text></view>
+</view>
+<view class="footer">
+	<view class="pay-box">
+		<view class="price-box">
+			<text>待支付</text>
+			<text class="price">{{total_fee}}元</text>
+		</view>
+		<button type="button" bindtap="payment" class="pay">立即支付</button>
+	</view>
+</view>
+
+<view class="blank100"></view>
+
+<!-- 参数设置 dialog -->
+<view class="mask" hidden="{{hideSetting}}"></view>
+<view class="print-setting" hidden="{{hideSetting}}">
+	<view class="dialog-box">
+		<view class="iconfont icon-close" bindtap="close"
+			style="font-size:30px;color:#666;position:absolute;top:-40px; right:0;"></view>
+		<view class="dialog-title">参数设置</view>
+		<view class="dialog-content">
+			<view class="dialog-item" hidden="{{hideSides}}">
+				<view class="left">单双面</view>
+				<view class="right">
+					<view bindtap="settingSide" data-side="1" class="switch-ds {{setting.side==1?'on':''}}">单面</view>
+					<view bindtap="settingSide" data-side="2" class="switch-ds {{setting.side==2?'on':''}}">双面</view>
+				</view>
+			</view>
+			<view class="dialog-item" hidden="{{hideColor}}">
+				<view class="left">颜色</view> 
+				<view class="right"> 
+					<view bindtap="settingColor" data-color="1" class="switch-ds {{setting.color==1?'on':''}}">黑白</view>
+					<view bindtap="settingColor" data-color="2" class="switch-ds {{setting.color==2?'on':''}}">彩色</view>
+				</view>
+			</view>
+			<view class="dialog-item" hidden="{{hideOrientation}}">
+				<view class="left">方向</view>
+				<view class="right">
+					<view bindtap="settingOrientation" data-orientation="1"
+						class="switch-ds {{setting.orientation==1?'on':''}}">纵向</view>
+					<view bindtap="settingOrientation" data-orientation="2"
+						class="switch-ds {{setting.orientation==2?'on':''}}">横向</view>
+				</view>
+			</view>
+			<!-- <view class="dialog-item">
+				<view class="left">缩印</view>
+				<view class="right" style="padding:5px 0;position:relative;">
+					<text style="flex-grow:1;text-align:center;color:#4A74EE">无缩印</text>
+					<text style="padding:0 10px;color:#4A74EE;position:absolute;right:0;top:8px;" class="iconfont icon-down"></text>
+				</view>
+			</view> -->
+			<view class="dialog-item" hidden="{{hidePages}}">
+				<view class="left">页码范围</view>
+				<view class="right" style="box-shadow:none;">
+					<picker class="page-picker" mode="multiSelector" bindchange="bindPagesPickerChange"
+						bindcolumnchange="bindPagesPickerColumnChange" value="{{multiIndex}}" range="{{pagesPicker}}">
+						<view class="pages-value-box">
+							<view
+								style="padding:5px 0;display:flex;justify-content:center;align-items:center;width:5em;box-shadow: 0 3px 6px 0 #ccc;border-radius: 50px;text-align:center;">
+								<text
+									style="display:block;width:2em;text-align:right;color:#4A74EE">{{setting.page_start}}</text>
+								<text style="padding:0 10px;color:#4A74EE;" class="iconfont icon-down"></text>
+							</view>
+							<view style="padding:0 10px">-</view>
+							<view
+								style="padding:5px 0;display:flex;justify-content:center;align-items:center;width:5em;box-shadow: 0 3px 6px 0 #ccc;border-radius: 50px;text-align:center;">
+								<text
+									style="display:block;width:2em;text-align:right;color:#4A74EE">{{setting.page_end}}</text>
+								<text style="padding:0 10px;color:#4A74EE;" class="iconfont icon-down"></text>
+							</view>
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="dialog-item" hidden="{{hideCopies}}">
+				<view class="left">打印份数</view>
+				<view class="right" style="box-shadow:none;">
+					<view bindtap="settingCopies" data-field="subtract"
+						style="padding:5px 0;display:flex;justify-content:center;align-items:center;width:3em;box-shadow: 0 3px 6px 0 #ccc;border-radius: 50px;text-align:center;">
+						-</view>
+					<view style="width:3em;text-align:center;border-bottom:1px solid #333;margin:0 1em;">
+						{{setting.copies}}</view>
+					<view bindtap="settingCopies" data-field="addition"
+						style="padding:5px 0;display:flex;justify-content:center;align-items:center;width:3em;box-shadow: 0 3px 6px 0 #ccc;border-radius: 50px;text-align:center;">
+						+</view>
+				</view>
+			</view>
+		</view>
+		<view class="dialog-btn">
+			<view class="dialog-confirm-btn" bindtap="confirmSetting">设置完成</view>
+		</view>
+	</view>
+</view>
+
+<!-- 添加文件dialog -->
+<view class="mask" hidden="{{hideAdd}}"></view>
+<view class="print-setting" hidden="{{hideAdd}}">
+	<view class="dialog-box">
+		<view bindtap="closeAddFile" class="iconfont icon-close"
+			style="font-size:30px;color:#666;position:absolute;top:-40px; right:0;"></view>
+		<view class="dialog-title">继续上传</view>
+		<view class="dialog-content">
+			<view class="box-3">
+				<view data-type="file" bindtap="selectFile" class="item">
+					<view class="select-icon"
+						style="background:linear-gradient(to right, #6C67FF 0%, #3CA5FE 100%);box-shadow: 0 0 10px 0 #7C8BEF;">
+						<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+					</view>
+					<text class="text">微信文档</text>
+				</view>
+				<view data-type="image" bindtap="selectFile" class="item">
+					<view class="select-icon"
+						style="background:linear-gradient(to right, #97D159 0%, #C7E99D 100%);box-shadow: 0 0 10px 0 #75BE3F;">
+						<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+					</view>
+					<text class="text">微信图片</text>
+				</view>
+				<navigator url="../web-view/select?page_type=1" class="item">
+					<view class="select-icon"
+						style="background:linear-gradient(to right,#EC62A2 0%, #EC827D 100%);box-shadow: 0 0 10px 0 #EF8E85;">
+						<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+					</view>
+					<text class="text">本地文档</text>
+				</navigator>
+				<navigator url="../web-view/select?page_type=1" class="item">
+					<view class="select-icon"
+						style="background:linear-gradient(to right,#EF8E85 0%, #FAE493 100%);box-shadow: 0 0 10px 0 #F3BC75;">
+						<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+					</view>
+					<text class="text">WPS文档</text>
+				</navigator>
+			</view>
+		</view>
+	</view>
+</view>

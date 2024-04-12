@@ -1,0 +1,96 @@
+/**
+ * author:houguang
+ * date:2020/07/15
+ */
+
+.banner {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.banner image {
+    display: block;
+    width: 100%;
+}
+
+.tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.tools view {
+    width: 33%;
+    display: block;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    position: relative;
+
+}
+
+.tools image {
+    width: 40%;
+}
+
+.tools text {
+    padding-top: 10px;
+    line-height: 1;
+}
+
+.tools text.dot {
+    position: absolute;
+    z-index: 11;
+    width: 10px;
+    height: 10px;
+    background-color: #F00;
+    border-radius: 50%;
+    right: 10px; top: 10px;
+    margin: 0;padding: 0;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.menu .left,
+.menu .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.menu image {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.shop-picker {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.not-print {
+    padding: 15px;
+    color: #F00;
+    background-color: #ff0;
+    margin: 0 10px;
+    border-radius: 15px;
+}

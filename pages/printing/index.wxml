@@ -1,0 +1,131 @@
+<view class="top">
+  <view class="position">
+    <view class="info">
+      <view>
+        <view class="iconfont icon-position" style="padding-right:5px;"></view>
+        <text>{{printer.name}}({{printer.shop_name}})</text>
+      </view>
+      <view class="iconfont icon-right"></view>
+    </view>
+  </view>
+</view>
+<view class="success">
+  <image src="../../images/icon_finash@2x.png" mode="widthFix" style="width: 160rpx;" />
+  <view>付款完成，正在打印</view>
+  <small>请勿关闭页面</small>
+</view>
+<view class="printer-title">打印信息{{test_text}}</view>
+<view class="order">
+  <view class="order-info">
+    <view class="out_trade_no">订单号：{{order.out_trade_no}}</view>
+    <view class="total_fee">￥{{order.total_fee/100}}</view>
+  </view>
+</view>
+<view class="list">
+  <block wx:for="{{lists}}">
+    <block wx:if="{{item.page_type===1}}">
+      <view class="item">
+        <view class="file">
+          <view class="file-left">
+            <view class="file-icon-out" style="background-color: {{ext[item.ext]['color']}}">
+              <image src="../../images/{{ext[item.ext].icon}}" mode="widthFix" class="file-icon" />
+            </view>
+            <view class="file-title">
+              <text class="file-title-text">{{item.filename}}</text>
+              <text class="file-title-info">文件共{{item.pages}}页</text>
+            </view>
+          </view>
+          <view class="file-right">
+            <view>{{item.print_desc}}</view>
+          </view>
+        </view>
+        <view class="print">
+          <view>
+            <view class="print-left">
+              <view class="print-text">
+                <view class="f-color-primary">
+                  <text class="p-number">{{item.page_end-item.page_start+1}}</text>
+                  <text>页</text>
+                </view>
+                <view class="f-color-secondary">打印页数</view>
+              </view>
+              <view class="print-text">
+                <view class="f-color-primary"><text class="p-number">{{item.copies}}</text><text>份</text>
+                </view>
+                <view class="f-color-secondary">打印份数</view>
+              </view>
+            </view>
+            <view class="pirnt-selected-param">
+              <block wx:if="{{item.filename==='身份证.png'}}">
+                <text>
+                  <block wx:if="{{item.color==2}}">彩色</block>
+                  <block wx:if="{{item.color==1}}">黑白</block>
+                </text>
+              </block>
+              <block wx:else>
+                <text>
+                  <block wx:if="{{item.page_type==1}}">A4/</block>
+                  <block wx:else>照片/</block>
+
+                  <block wx:if="{{item.side==1}}">单面/</block>
+                  <block wx:else>双面/</block>
+
+                  <block wx:if="{{item.orientation == 1}}">纵向/</block>
+                  <block wx:else>横向/</block>
+
+                  <block wx:if="{{item.color == 2}}">彩色</block>
+                  <block wx:else>黑白</block>
+                </text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="item-photo">
+        <view class="print-photo-left">
+          <block wx:if="{{item.filename=='证件照.jpg'}}">
+            <view class="photo-thumb-box">
+              <view class="photo-thumb">
+                <image src="{{item.file}}" mode="widthFix" style="width:160rpx;border:2rpx solid #ddd;" />
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="photo-thumb-box">
+              <view class="photo-thumb">
+                <image src="{{item.file}}" mode="widthFix" style="width:160rpx;" />
+              </view>
+            </view>
+          </block>
+          <view class="print-text">
+            <block wx:if="{{item.size=='c1'}}">
+              <view class="f-color-secondary">1寸</view>
+            </block>
+            <block wx:if="{{item.size=='c1x'}}">
+              <view class="f-color-secondary">大1寸</view>
+            </block>
+            <block wx:if="{{item.size=='c2'}}">
+              <view class="f-color-secondary">2寸</view>
+            </block>
+            <block wx:if="{{item.size=='c2x'}}">
+              <view class="f-color-secondary">大2寸</view>
+            </block>
+            <block wx:if="{{item.size=='c6'}}">
+              <view class="f-color-secondary">6寸</view>
+            </block>
+            <view class="f-color-primary">
+              <text class="p-number">{{item.copies}}</text>
+              <text>份</text>
+            </view>
+            <view class="f-color-secondary">打印份数</view>
+          </view>
+        </view>
+        <view class="print-photo-right">
+          <view>{{item.print_desc}}</view>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

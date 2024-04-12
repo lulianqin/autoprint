@@ -1,0 +1,115 @@
+
+.wenku_view_css {
+	position: relative;
+
+	margin-top: 1em;
+	margin-left: 3%;
+	width: 94%;
+	background-color: #FFF;
+	border-radius: 1em;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.wenku_ne_view_css {
+	margin: 1em;
+	height: 100%;
+	width: 100%;
+}
+
+.wenku_dp_view_css {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.wenku_dp_view2_css {
+	margin-bottom: 1em;
+	margin-top: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+
+.or_wjxx_view_css {
+	margin-top: .5em;
+	margin-bottom: 1em;
+	font-size: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #6e6e6e;
+}
+
+.or_wjxx_view2_css {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #6e6e6e;
+}
+
+.type_img_css {
+	width: 4em;
+	height: 4em;
+	margin-left: 1em;
+	flex-shrink: 0;
+}
+
+.buu_view_css {
+	display: flex;
+	margin-left: auto;
+}
+
+.buu_css {
+	background-color: #4A74EE;
+	color: #FFF;
+	margin-right: 1em;
+	margin-left: auto;
+}
+
+.buu_sc_css {
+	background-color: #ee0003;
+	color: #FFF;
+	margin-right: 1em;
+}
+
+.wenku_dp_n_view_css {
+	width: 70%;
+	font-size: 1em;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+}
+
+.wenku_name {
+	font-weight: bold;
+	margin-left: .5em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 80%;
+}
+
+.or_wu_view_css {
+	justify-content: center;
+	margin-top: 1.2em;
+	font-weight: bold;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	color: #6e6e6e;
+}

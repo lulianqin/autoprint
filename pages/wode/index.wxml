@@ -1,0 +1,37 @@
+<view class="body_css">
+  <view class="tx_view_css">
+    <image class="tx_img_css" src="{{userInfo.avatarUrl}}" />
+    <span class="tx_name_css">
+      {{userInfo.nickName}}
+    </span>
+  </view>
+  <view class="list_view_css">
+      <view class="list_nr_view_css" bindtap="zt" data-url="or_list">
+        <span class="iconfont-i icon-dingdan"></span>
+        <span class="list_name_css">我的订单</span>
+        <span class="iconfont-i icon-qianjin list_qianjin_css"></span>
+      </view>
+    <view class="list_nr_view_css">
+      <span class="iconfont-i icon-fenxiang"></span>
+      <span class="list_name_css">分享给好友</span>
+      <span class="iconfont-i icon-qianjin list_qianjin_css"></span>
+      <button open-type="share" plain="true" style="border:0;width:100%; height:2.5em;position:fixed;"></button>
+    </view>
+    <view class="list_nr_view_css" bindtap="zt" data-url="wodewenku">
+      <span class="iconfont-i icon-wenku"></span>
+      <span class="list_name_css">我的文库</span>
+      <span class="iconfont-i icon-qianjin list_qianjin_css"></span>
+    </view>
+  </view>
+</view>
+<view class="mask" hidden="{{hideLogin}}"></view>
+<view class="dialog-out" hidden="{{hideLogin}}"> 
+  <view class="dialog-box">
+    <view class="dialog-content text-center">
+      <text>登录后可体验完整功能</text>
+    </view>
+    <view class="dialog-btn">
+      <button class="dialog-confirm-btn" bindtap="login_user">立即登录</button>
+    </view>
+  </view>
+</view>

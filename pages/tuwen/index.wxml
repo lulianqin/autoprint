@@ -1,0 +1,65 @@
+<view class="top">
+	<view class="position">
+		<view class="info">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="box-1">
+	<navigator url="../print_list/index" class="item">
+		<image src="../../images/print_list@2x.png" mode="widthFix"></image>
+		<text>打印列表</text>
+	</navigator>
+	<navigator url="../shop/index" class="item">
+		<image src="../../images/nearby@2x.png" mode="widthFix"></image>
+		<text>附近打印点</text>
+	</navigator>
+</view>
+<view class="box-2">
+	<view class="title">
+		<text class="text">上传文档</text>
+		<text class="e_text">UPLOAD</text>
+	</view>
+	<view class="box-3"> 
+		<view data-type="file" bindtap="selectFile" class="item">
+			<view class="select-icon" style="background:linear-gradient(to right, #6C67FF 0%, #3CA5FE 100%);box-shadow: 0 0 10px 0 #7C8BEF;">
+				<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+			</view>
+			<text class="text">微信文档</text>
+		</view>
+		<view data-type="image" bindtap="selectFile" class="item">
+			<view class="select-icon" style="background:linear-gradient(to right, #97D159 0%, #C7E99D 100%);box-shadow: 0 0 10px 0 #75BE3F;">
+				<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+			</view>
+			<text class="text">微信图片</text>
+		</view>
+		<navigator url="../web-view/select?page_type=1" class="item">
+			<view class="select-icon" style="background:linear-gradient(to right,#EC62A2 0%, #EC827D 100%);box-shadow: 0 0 10px 0 #EF8E85;">
+				<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+			</view>
+			<text class="text">本地文档</text>
+		</navigator>
+		<navigator url="../web-view/select?page_type=1" class="item">
+			<view class="select-icon" style="background:linear-gradient(to right,#EF8E85 0%, #FAE493 100%);box-shadow: 0 0 10px 0 #F3BC75;">
+				<image src="../../images/select-file@2x.png" mode="widthFix"></image>
+			</view>
+			<text class="text">WPS文档</text>
+		</navigator>
+	</view>
+</view>
+<view >
+	<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+</view>
+<view class="box-4">
+	<view class="title">
+		<text class="text">打印说明</text>
+		<text class="e_text">INSTRUCTIONS</text>
+	</view>
+	<view class="instructions">
+		<image src="../../images/img_liu_cheng@2x.png" mode="widthFix"></image>
+	</view>
+</view>

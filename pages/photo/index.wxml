@@ -1,0 +1,53 @@
+<view class="top">
+	<view class="position">
+		<view class="info">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="box-1">
+	<view class="item">
+		<image src="../../images/print_list@2x.png" mode="widthFix"></image>
+		<text>打印列表</text>
+	</view>
+	<navigator url="../shop/index" class="item">
+		<image src="../../images/nearby@2x.png" mode="widthFix"></image>
+		<text>附近打印点</text>
+	</navigator>
+</view>
+<view class="box-2">
+	<view class="title">
+		<text class="text">上传照片</text>
+		<text class="e_text">UPLOAD PHOTO</text>
+	</view>
+	<view class="upload-box">
+		<view class="upload-btn" bindtap="choose" data-btn="1">
+			<view class="iconfont icon-zhaoxiangji"></view>
+			<view class="text">相机拍照</view>
+		</view>
+		<view class="upload-btn" bindtap="choose" data-btn="2"> 
+			<view class="iconfont icon-tupian"></view>
+			<view class="text">微信图片</view>
+		</view>
+		<view class="upload-btn" bindtap="choose" data-btn="3">
+			<view class="iconfont icon-xinjianwenjianjia"></view>
+			<view class="text">本地图片</view>
+		</view>
+	</view>
+</view>
+<view style="padding-top:10px;">
+	<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+</view>
+<view class="box-4">
+	<view class="title">
+		<text class="text">打印说明</text>
+		<text class="e_text">INSTRUCTIONS</text>
+	</view>
+    <view class="instructions">
+        <image src="../../images/img_liu_cheng@2x.png" mode="widthFix"></image>
+    </view>
+</view>

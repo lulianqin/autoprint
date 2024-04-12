@@ -1,0 +1,16 @@
+<wxs src="f.wxs" module="f" />
+<view style="width: 100vw;height: 100vh;">
+	<view class="wenku_view_css" id="item{{index}}" wx:for="{{taskList}}" wx:key="index" data-index="{{index}}"
+		data-yid="{{item.id}}" bindtap="homeClick">
+		<view class="wenku_dp_view_css">
+			<image src="{{f.get_type(item.type,1)}}" class="type_img_css" style="width: 5em;height: 4em;" />
+			<view class="wenku_dp_n_view_css">
+				<view class="wenku_name">{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="or_wu_view_css" wx:if="{{taskList.length <= 0}}">
+		<span>暂无文库记录</span>
+	</view>
+</view>

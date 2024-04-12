@@ -1,0 +1,103 @@
+<view class="content" style="{{myStyle}}">
+	<view class="photo-thumb">
+		<image src="{{photo_thumb}}" mode="widthFix"></image>
+		<view class="download-box" hidden="{{hideDownloadBtn}}">
+			<view class="btn-downloadA" bindtap="downPhoto" data-btn="1">保存无水印图片</view>
+		</view>
+	</view>
+	<view class="photo-template">
+		<image src="{{photo_template}}" mode="widthFix"></image>
+		<view class="download-box" hidden="{{hideDownloadBtn}}">
+			<view class="btn-downloadB" bindtap="confirm" data-btn="1">打印无水印图片</view>
+		</view>
+	</view>
+	<view class="btn-box">
+		<block wx:if="{{btn==1}}">
+			<view class="btn-confirm" bindtap="confirm">确认</view>
+		</block>
+		<block wx:if="{{btn==2}}">
+			<view class="btn_2" hidden="{{hideBuyBtn}}">
+				<view class='index_tab' style="width:100%">
+					<scroll-view class="bottom_scroll" scroll-x="true" scroll-left="{{x}}" scroll-with-animation="{{true}}">
+						<view class='nav {{item.brand_id == brand_id?"cur":""}}' wx:for="{{nav_list}}" wx:key="{{item.brand_id}}"
+							data-id="{{item.brand_id}}" bindtap='switchTap' data-index="{{index}}">
+							<view>{{item.brand_name}}</view>
+							<span></span>
+						</view>
+					</scroll-view>
+				</view>
+
+				<view hidden="{{index_beijin}}" style="width:100%;margin-top: .8em;">
+					<scroll-view class="bottom_scroll" scroll-x="true" scroll-left="0" scroll-with-animation="{{true}}">
+						<view class="co">
+							<view wx:for="{{co_list}}" wx:for-item="item" wx:key="index">
+								<view style="{{item.co}}" data-index="{{index}}" bindtap="bj_set"> </view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+
+				<view hidden="{{index_meiyan}}" style="width:100%;margin-top: .8em;">
+					<view class="meiyan_view">
+						<view class="meiyan_view_2" bindtap="meiyan_btn" data-pid="0">
+							<view class="meiyan_img">
+								<span class="iconfont-i icon-meiyan-wu"></span>
+							</view>
+							<span style="margin-top:.1em;color: var(--meiyan_wu_co);">无美颜</span>
+						</view>
+						<view class="meiyan_view_2" bindtap="meiyan_btn" data-pid="1">
+							<view class="meiyan_img_s">
+								<span class="iconfont-i icon-meiyan"></span>
+							</view>
+							<span style="margin-top:.1em;color: var(--meiyan_zhi_co);">智能美颜</span>
+						</view>
+					</view>
+				</view>
+
+				<view hidden="{{index_huanzhuan}}" style="width:100%;margin-top: .8em;">
+					<scroll-view class="bottom_scroll" scroll-x="true" scroll-left="0" scroll-with-animation="{{true}}">
+						<view class='huanz_view'>
+							<view hidden="{{huanzhuang_data.index_nan}}" class="huanz_view_2" wx:for="{{huanzhuan_list.nan}}"
+								wx:for-item="item" wx:key="{{index}}" data-index="{{index}}" bindtap="zhuang_bin">
+								<image class="huanzhuan_img"
+									src="{{item?'https://wx.scweichuang.com/static/ico/huanzhuan/nan/applet_boy'+item+'.png':'https://wx.scweichuang.com/static/ico/huanzhuan/gb.png'}}"
+									mode="scaleToFill"></image>
+							</view>
+							<view hidden="{{huanzhuang_data.index_nv}}" class="huanz_view_2" wx:for="{{huanzhuan_list.nv}}"
+								wx:for-item="item" wx:key="{{index}}" data-index="{{index}}" bindtap="zhuang_bin">
+								<image class="huanzhuan_img"
+									src="{{item?'https://wx.scweichuang.com/static/ico/huanzhuan/nv/applet_girl'+item+'.png':'https://wx.scweichuang.com/static/ico/huanzhuan/gb.png'}}"
+									mode="scaleToFill"></image>
+							</view>
+							<view hidden="{{huanzhuang_data.index_tong}}" class="huanz_view_2" wx:for="{{huanzhuan_list.tong}}"
+								wx:for-item="item" wx:key="{{index}}" data-index="{{index}}" bindtap="zhuang_bin">
+								<image class="huanzhuan_img"
+									src="{{item?'https://wx.scweichuang.com/static/ico/huanzhuan/tong/applet_kid'+item+'.png':'https://wx.scweichuang.com/static/ico/huanzhuan/gb.png'}}"
+									mode="scaleToFill"></image>
+							</view>
+						</view>
+					</scroll-view>
+					<view class="huanz_view_3">
+						<span bindtap="xz_zhuang_bin" style="{{huanzhuang_data.index_nan?'color: #6e6e6e;':'color: #4A74EE;'}}"
+							data-did="1">男装</span>
+						<span bindtap="xz_zhuang_bin" style="{{huanzhuang_data.index_nv?'color: #6e6e6e;':'color: #4A74EE;'}}"
+							data-did="2">女装</span>
+						<span bindtap="xz_zhuang_bin" style="{{huanzhuang_data.index_tong?'color: #6e6e6e;':'color: #4A74EE;'}}"
+							data-did="3">童装</span>
+					</view>
+				</view>
+				<!-- <view class="tips">
+                <view class="tips-headere">温馨提示</view>
+                <view class="tips-content">
+                    <view>1、购买无水印照金额{{electronic_price}}元，文件保存到本地图库，不支持退款</view>
+                    <view>2、如果需要打印，请先购买无水印照片后，在本页面打印</view>
+                </view>
+            </view> -->
+				<view class="bit_an">
+					<view class="btn-confirm" bindtap="buy" data-type="day" hidden="{{hideBuyBtn}}">购买无水印照片</view>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+<view class="blank100"></view>

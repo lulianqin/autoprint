@@ -1,0 +1,13 @@
+<image-cropper id="image-cropper" 
+limit_move="{{limit_move}}" 
+disable_rotate="{{disable_rotate}}" 
+width="{{width}}" height="{{height}}"
+imgSrc="{{src}}" bindload="cropperload" 
+disable_width="{{disable_width}}"
+disable_height="{{disable_height}}"
+bindimageload="loadimage" bindtapcut="clickcut">
+</image-cropper>
+<view class="tips">
+ <view>点击确定按钮确认选择区域</view>
+ <view class="btn-confirm" bindtap="confirm">确定</view>
+</view>

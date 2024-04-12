@@ -1,0 +1,132 @@
+<wxs src="f.wxs" module="f" />
+<scroll-view class="scroll-wrapper" scroll-x scroll-with-animation="true" scroll-into-view="item{{currentTab < 4 ? 0 : currentTab - 3}}">
+  <view class="navigate-item" id="item{{index}}" wx:for="{{taskList}}" wx:key="index" data-index="{{index}}" bindtap="handleClick">
+    <view class="names {{currentTab === index ? 'active' : ''}}">{{item.name}}</view>
+    <view class="currtline {{currentTab === index ? 'active' : ''}}"></view>
+  </view>
+</scroll-view>
+
+<swiper indicator-dots="{{false}}" bindchange="handleSwiper" current="{{currentTab}}">
+  <block wx:for="{{taskList}}" wx:key="idx">
+    <swiper-item style="overflow: scroll;">
+      <scroll-view scroll-y refresher-enabled refresher-background="#F6F7F8" refresher-triggered="{{isRefresh}}" bindrefresherrefresh="refresherpulling" bindscrolltolower="handleTolower">
+        <view class="or_wu_view_css" hidden="{{wudingdao}}">
+          <span>暂无订单记录</span>
+        </view>
+
+        <view class="card" wx:for="{{or_list}}" wx:for-item="item" wx:key="index">
+          <view class="status {{item.refund_status==2?'pendingColor':item.refund_status==6?'failColor':'successColor'}}">{{f.get_zt(item.st,item.dy,item.refund_status)}}</view>
+          <view class="remark"></view>
+          <view class="file">
+            <image mode="aspectFit" src="../../images/{{f.get_ico(item.filename)}}.png"></image>
+            <text>{{item.filename}}</text>
+          </view>
+
+          <view class="badgeList">
+            <view class="badge" wx:if="{{item.paper_name}}">{{item.paper_name}}</view>
+            <view class="badge">{{item.color==2?'彩色':'黑白'}}</view>
+            <view class="badge">{{item.copies}} 份</view>
+            <view class="badge">{{item.pages}} 张</view>
+          </view>
+          <view class="line2"></view>
+          <view class="info">
+            <view class="item">
+              <view class="title">门店：</view>
+              <view class="val">{{item.s_name}}</view>
+            </view>
+            <view class="item">
+              <view class="title">设备ID：</view>
+              <view class="val">{{item.device_id}}</view>
+            </view>
+            <view class="item">
+              <view class="title">打印机：</view>
+              <view class="val">{{item.printer_name}}</view>
+            </view>
+            <view class="item">
+              <view class="title">打印结果：</view>
+              <view class="val">{{f.get_dy(item.dy)}}</view>
+            </view>
+          </view>
+
+          <view class="line2"></view>
+          <view class="info">
+            <view class="item">
+              <view class="title">订单号：</view>
+              <view class="val">{{item.or_id}}</view>
+            </view>
+            <view class="item">
+              <view class="title">支付时间：</view>
+              <view class="val">{{item.time}}</view>
+            </view>
+            <view class="item">
+              <view class="title">支付金额：</view>
+              <view class="val price">￥{{f.get_mo(item.mo)}}</view>
+            </view>
+          </view>
+          <block wx:if="{{item.refund_status > 0}}">
+            <view class="line2"></view>
+            <view class="info">
+              <view class="item">
+                <view class="title">申请时间：</view>
+                <view class="val">{{item.refund_applytime}}</view>
+              </view>
+              <view class="item" wx:if="{{item.refund_status>1}}">
+                <view class="title">{{item.refund_status==2?'驳回':'审批'}}时间：</view>
+                <view class="val">{{item.refund_rejecttime}}</view>
+              </view>
+            </view>
+          </block>
+          <view class="footer">
+            <button bindtap="onRefund" class="btnPlainGray" data-index="{{index}}" data-job-id="{{item.id}}" hoverClass="btnHover" wx:if="{{item.refund_status == 0}}">
+              申请退款
+            </button>
+            <button bindtap="onContact" class="btnPlainGray" data-phone="{{item.phone}}" hoverClass="btnHover" wx:if="{{item.phone}}">
+              联系商家
+            </button>
+            <button bindtap="onPrintItNow" class="btnPlain" data-index="{{index}}" data-job-id="{{item.id}}" hoverClass="btnHover" wx:if="{{item.dy==0}}">立即打印</button>
+          </view>
+          <!--<view class="or_dp_view_css">
+              <span class="iconfont-i icon-dianpu" style="margin-right:.5em;margin-left: 1em;"></span>
+              <span style="position: relative; font-size: 1em;color: #6e6e6e;">{{item.s_name}}</span>
+              <span class="iconfont-i icon-qianjin list_qianjin_css"></span>
+            </view>-->
+
+          <!--<view class="or_xx_view_css">
+            <span style="position: relative; font-size: 1em;margin-left: 1em;">订单号:</span>
+            <span>({{item.or_id}})</span>
+          </view>
+
+          <view class="or_wjxx_view_css">
+            <span style="position: relative; font-size: 1em;margin-left: 1em;">共{{item.copies}}个文件</span>
+            <span style="flex: 1;text-align: right;margin-right: 1em;font-size: 1em;">实付金额:{{f.get_mo(item.mo)}}</span>
+          </view>
+
+          <view class="or_wjxx_view_css">
+            <span style="position: relative; font-size: .9em;margin-left: 1em;">下单时间:{{item.time}}</span>
+            <span style="flex: 1;text-align: right;margin-right: 1em;font-size: .9em;">订单状态: {{f.get_st(item.st)}}</span>
+          </view>
+          <view class="or_wbxx_view_css">
+            <span style="position: relative; font-size: .9em;margin-left: 1em;">文件名:{{item.filename}}</span>
+            <span style="flex: 1;text-align: right;margin-right: 1em;font-size: .9em;">打印状态: {{f.get_dy(item.dy)}}</span>
+          </view>-->
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+  </block>
+  <view class="mask" hidden="{{hideSetting}}"></view>
+  <view class="print-setting" hidden="{{hideSetting}}">
+    <view class="dialog-box">
+      <view class="iconfont icon-close" bindtap="close" style="font-size:30px;color:#666;position:absolute;top:-40px; right:0;"></view>
+      <view class="dialog-title">申请退款</view>
+      <view class="dialog-content">
+        <view class="dialog-item">
+        <input placeholder="请输入退款原因" type="text" bindinput="bindKeyInput" value="{{re_msg}}"></input>
+        </view>
+      </view>
+      <view class="dialog-btn">
+        <view class="dialog-confirm-btn" bindtap="btnHover">确定</view>
+      </view>
+    </view>
+  </view>
+</swiper>

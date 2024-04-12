@@ -1,0 +1,389 @@
+.scroll-wrapper {
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  background: #FFF;
+  height: 90rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.navigate-item {
+  display: inline-block;
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 16rpx;
+}
+
+.names {
+  font-size: 28rpx;
+  color: #3c3c3c;
+}
+
+.names.active {
+  color: #4A74EE;
+  font-weight: bold;
+  font-size: 34rpx;
+}
+
+.currtline {
+  margin: -8rpx auto 0 auto;
+  width: 100rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+}
+
+.currtline.active {
+  background: #4A74EE;
+  transition: all .3s;
+}
+
+swiper {
+  min-height: calc(100vh - 100rpx);
+}
+.swiper-item {
+  width: 100%;
+}
+.or_view_css{
+  margin-top: 1em;
+  margin-left: 3%;
+  width: 94%;
+  height: 100%;
+  background-color: #FFF;
+  border-radius: 1em;
+
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  
+}
+.or_ne_view_css{
+  margin: 1em;
+  height: 100%;
+  width: 100%;
+}
+.or_dp_view_css{
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.or_xx_view_css{
+  margin-top: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.or_wjxx_view_css{
+  margin-top: .5em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #6e6e6e;
+}
+.or_wbxx_view_css{
+  margin-top: 1.2em;
+  margin-bottom: 1em;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+  width: 100%;
+  color: #6e6e6e;
+}
+
+.or_wu_view_css{
+  justify-content: center;
+  margin-top: 1.2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+  width: 100%;
+  color: #6e6e6e;
+}
+.icon-dianpu:before {
+  content: "\e62e";
+  color: #4A74EE;
+  font-size: 1.4em;
+}
+.list_qianjin_css {
+  flex: 1;
+  text-align: right;
+  margin-right: 1em;
+}
+.icon-qianjin:before {
+  content: "\e614";
+  color: #4A74EE;
+  font-size: 1.2em;
+}
+scroll-view {
+  height: calc(100vh - 100rpx);
+}
+page {
+  background-color: #f3f3f3;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8rpx;
+  box-shadow: 0 0 18rpx 1rpx rgba(171,185,197,.27);
+  margin: 40rpx 5%;
+  overflow: hidden;
+  padding: 0 36rpx;
+  position: relative;
+}
+
+.card .status {
+  align-items: flex-end;
+  font-size: small;
+  height: fit-content;
+  justify-content: center;
+  position: absolute;
+  right: -20rpx;
+  top: 20rpx;
+  transform: translateX(80rpx) rotate(45deg);
+  transform-origin: 50% top;
+  width: 240rpx;
+}
+
+.card .status,.userInfo {
+  display: flex;
+}
+
+.userInfo {
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+
+.userInfo image {
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 64rpx;
+  overflow: hidden;
+  width: 64rpx;
+}
+
+.userInfo text {
+  color: #202020;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+}
+
+.card .remark {
+  color: #202020;
+  font-size: 28rpx;
+  max-width: 80%;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .line {
+  border-bottom: 4rpx solid #f3f3f3;
+}
+
+.card .line,.card .line2 {
+  box-sizing: border-box;
+  height: 1rpx;
+}
+
+.card .line2 {
+  border-bottom: 2rpx solid #f3f3f3;
+}
+
+.card .file {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 18rpx;
+  padding-top: 20rpx;
+}
+
+.card .file image {
+  height: 66rpx;
+  min-height: 66rpx;
+  min-width: 66rpx;
+  width: 66rpx;
+}
+
+.card .file text {
+  color: #202020;
+  font-size: 28rpx;
+  overflow: hidden;
+  padding-left: 15rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card .badgeList {
+  justify-content: flex-start;
+  padding-bottom: 20rpx;
+}
+
+.card .badgeList,.card .badgeList .badge {
+  align-items: center;
+  display: flex;
+}
+
+.card .badgeList .badge {
+  background: #f3f3f3;
+  border-radius: 24rpx;
+  color: #606060;
+  font-size: 25rpx;
+  height: 50rpx;
+  justify-content: center;
+  margin-right: 20rpx;
+  min-width: 110rpx;
+}
+
+.card .info {
+  padding-top: 30rpx;
+}
+
+.card .item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 100%;
+  padding-bottom: 31rpx;
+  white-space: nowrap;
+}
+
+.card .item .title,.card .item .val {
+  color: #202020;
+  font-size: 29rpx;
+}
+
+.card .item .val {
+  flex: 1;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+}
+
+.card .item .price {
+  color: #dc2228;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.successColor {
+  background-color: #24a2fd;
+  color: #fff;
+}
+
+.failColor {
+  background-color: #ec3e40;
+  color: #fff;
+}
+
+.pendingColor {
+  background-color: #ef7824;
+  color: #fff;
+}
+
+.end {
+  align-items: center;
+  color: #555;
+  display: flex;
+  font-size: 10pt;
+  justify-content: center;
+  padding-bottom: 50rpx;
+  text-align: center;
+}
+
+.end .txt {
+  flex-grow: 0;
+}
+
+.end .line {
+  border-top: 1px solid;
+  flex: 1 0;
+  height: 1px;
+  margin: auto 5%;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer button {
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  height: 70rpx;
+  margin: 34rpx 0 34rpx 22rpx;
+}
+
+.empty,.footer button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.empty {
+  color: #909090;
+  flex-direction: column;
+  font-size: 32rpx;
+  height: 800rpx;
+}
+
+.empty image {
+  height: 230rpx;
+  width: 230rpx;
+}
+
+.reason {
+  padding: 20rpx;
+  width: 600rpx;
+}
+
+.reason .title {
+  font-size: 36rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+
+.reason .van-cell {
+  border: 1px solid #d7d7d7;
+  border-radius: 10rpx;
+}
+
+.reason button {
+  align-items: center;
+  background: #24a2fd;
+  border-radius: 35rpx;
+  color: #fff;
+  display: flex;
+  font-size: 32rpx;
+  height: 70rpx;
+  justify-content: center;
+  margin-top: 50rpx;
+  padding: 0;
+  width: 260rpx;
+}
+.btnPlainGray {
+  background: #fff;
+  border: 1px solid #909090;
+  color: #606060;
+}
+.btnPlain {
+  background: #fff;
+  border: 1px solid #24a2fd;
+  color: #24a2fd;
+}

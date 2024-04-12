@@ -1,0 +1,81 @@
+<view class="banner" wx:if="{{banner.length>0}}">
+    <swiper indicator-dots="true" autoplay="true" style="height:380rpx;">
+        <swiper-item wx:for="{{banner}}" wx:key="*this">
+            <image src="{{item.img}}" mode="widthFix" bindtap="redirect" data-index="{{index}}" />
+        </swiper-item>
+    </swiper>
+</view>
+<view class="position">
+    <view class="info">
+        <view class="shop-picker">
+            <view class="iconfont icon-position" style="padding-right:5px;"></view>
+            <text>{{printer_name}}</text>
+        </view>
+        <view class="iconfont icon-right"></view>
+    </view>
+</view>
+<view class="tools">
+    <view bindtap="scan">
+        <image mode="widthFix" src="../../images/sao_ma_qu_jian@2x.png"></image>
+        <text>扫码取件</text>
+    </view>
+    <view bindtap="jumpUrl" data-url="../print_list/index">
+        <image mode="widthFix" src="../../images/print_list@2x.png"></image>
+        <text>打印列表</text>
+        <text wx:if="{{lists>0}}" class="dot"></text>
+    </view>
+    <view bindtap="jumpUrl" data-url="../shop/index">
+        <image mode="widthFix" src="../../images/nearby@2x.png"></image>
+        <text>附近打印点</text>
+    </view>
+    <view bindtap="jumpUrl" data-url="../shop/index">
+       <image mode="widthFix" src="../../images/nearby@2x.png"></
+        image>
+       <text>附近打印点</text>
+   </view>       
+</view>
+<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+<view class="menu">
+    <view class="left">
+        <view bindtap="jumpUrl" data-url="../tuwen/index" data-print-type="1" data-page-type="1">
+            <image mode="widthFix" src="../../images/tu_wen@2x.png"></image>
+        </view>
+        <view bindtap="jumpUrl" data-url="../id_photo/index" data-print-type="2" data-page-type="1">
+            <image mode="widthFix" src="../../images/sao_miao@2x.png"></image>
+        </view>
+    </view>
+    <view class="right">
+        <view bindtap="jumpUrl" data-url="../id_card/index" data-print-type="3" data-page-type="1">
+            <image mode="widthFix" src="../../images/shen_fen_zheng@2x.png"></image>
+        </view>
+        <view bindtap="jumpUrl" data-url="../take_photo/index" data-print-type="4" data-page-type="2">
+            <image mode="widthFix" src="../../images/zheng_jian_zhao@2x.png"></image>
+        </view>
+        <view bindtap="jumpUrl" data-url="../photo/index" data-print-type="5" data-page-type="2">
+            <image mode="widthFix" src="../../images/zhao_pian@2x.png"></image>
+        </view>
+    </view>
+</view>
+
+<view class="mask" hidden="{{hideLogin}}"></view>
+<view class="dialog-out" hidden="{{hideLogin}}">
+    <view class="dialog-box">
+        <view class="dialog-content text-center">
+            <text>登录后可体验完整功能</text>
+        </view>
+        <view class="dialog-btn">
+            <block wx:if="{{canIuseGetUserProfile}}">
+                <button class="dialog-confirm-btn" bindtap="getUserInfo">立即登录</button>
+            </block>
+            <block wx:else>
+                <button class="dialog-confirm-btn" lang="zh_CN" open-type="getUserInfo"
+                    bindgetuserinfo="getUserInfo">立即登录</button>
+            </block>
+        </view>
+    </view>
+    <view class="cancel-dialog">
+        <view class="iconfont icon-close" bindtap="closeLogin"></view>
+    </view>
+</view>
+
+<navigator wx:if="{{unPrint.length>0}}" url="../printing/index" class="not-print">你有已付款未打印的文件,点此去打印</navigator>

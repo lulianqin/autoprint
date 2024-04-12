@@ -1,0 +1,129 @@
+/**
+ * author:houguang
+ * date:2020/07/15
+ */
+
+ @import "./iconfont/iconfont.wxss";
+
+ @font-face {
+    font-family: 'iconfont-i';  /* Project id 2736001 */
+    src: url('//at.alicdn.com/t/font_2736001_6d4yyvlfg8q.woff2?t=1628778920612') format('woff2'),
+         url('//at.alicdn.com/t/font_2736001_6d4yyvlfg8q.woff?t=1628778920612') format('woff'),
+         url('//at.alicdn.com/t/font_2736001_6d4yyvlfg8q.ttf?t=1628778920612') format('truetype');
+  }
+  .iconfont-i {
+    font-family: "iconfont-i" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+page {
+    background-color: #F5F7F9;
+    font-size: 14px;
+    position: relative;
+}
+
+
+.position {
+    position: relative;
+    z-index: 11;
+    margin-top: 15px;
+}
+.position .info {
+    background-color: #FFF;
+    border-radius: 100px;
+    width: 90%;
+    display: flex;flex-direction: row;justify-content: space-between;
+    margin:0 auto;
+    font-size: 14px;
+    line-height: 1;padding: 8px;
+}
+.position .info view {
+    display: flex;flex-direction: row;justify-content: flex-start;align-items: center;
+}
+
+.f-color-primary {
+    color: #5E7EE8;
+}
+.f-color-secondary {
+    color: #999999;
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;width: 100%;height: 100%;position: fixed;
+    top: 0;left: 0;
+}
+
+.blank100 {
+    width: 100%;
+    height: 100px;
+}
+
+.print-setting,.dialog-out {
+    position: fixed;
+    width: 100%;height: 100%;
+    display: flex;flex-direction: column;
+    justify-content: center;align-items: center;
+    left: 0;top: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 101;
+}
+.dialog-box {
+    width: calc(100% - 40px);background-color: #FFF;border-radius: 10px;
+    padding: 20px;
+    font-size: 16px;
+    position: relative;
+}
+
+.dialog-title {
+    line-height: 1;padding-bottom: 10px;
+    text-align: center;
+}
+.dialog-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.dialog-item .left,.dialog-item .right {
+    width: 50%;
+}
+.dialog-item .right {
+    display: flex;justify-content: flex-end;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 0 3px 6px 0 #ccc;
+}
+.dialog-center-text{
+    line-height: 1;text-align: center;padding: 15px 0;
+}
+.dialog-btn {
+    display: flex;justify-content: space-evenly;padding: 20px 0 0;
+}
+.dialog-confirm-btn {
+    background-color: #FFBA00;
+    color: #FFF;line-height: 1;
+    padding: 10px 20px;border-radius: 50px;
+    font-weight: normal;margin:0;
+    width: 6em;
+    text-align: center;
+}
+button::after,button::before {display: none;}
+.text-center {text-align: center;}
+.cancel-dialog{
+    padding: 15px 50px; text-align: center;
+}
+.cancel-dialog .iconfont {
+    font-size: 30px;color: #FFF;
+}
+
+.no-data {
+    padding: 50px 0;
+    text-align: center;
+    color: gray;
+}

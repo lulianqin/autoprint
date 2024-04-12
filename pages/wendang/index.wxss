@@ -1,0 +1,210 @@
+.scroll-wrapper {
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+	background: #FFF;
+	height: 90rpx;
+	padding: 0 32rpx;
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	color: transparent;
+}
+
+.navigate-item {
+	display: inline-block;
+	text-align: center;
+	height: 90rpx;
+	line-height: 90rpx;
+	margin: 0 16rpx;
+}
+
+.names {
+	font-size: 28rpx;
+	color: #3c3c3c;
+}
+
+.names.active {
+	color: #4A74EE;
+	font-weight: bold;
+	font-size: 34rpx;
+}
+
+.currtline {
+	margin: -8rpx auto 0 auto;
+	width: 100rpx;
+	height: 8rpx;
+	border-radius: 4rpx;
+}
+
+.currtline.active {
+	background: #4A74EE;
+	transition: all .3s;
+}
+
+swiper {
+	min-height: calc(100vh - 100rpx);
+}
+
+.swiper-item {
+	width: 100%;
+}
+
+.wenku_view_css {
+	position: relative;
+
+	margin-top: 1em;
+	margin-left: 3%;
+	width: 94%;
+	height: 100%;
+	background-color: #FFF;
+	border-radius: 1em;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.wenku_ne_view_css {
+	margin: 1em;
+	height: 100%;
+	width: 100%;
+}
+
+.wenku_dp_view_css {
+	margin-top: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.wenku_dp_view2_css {
+	margin-bottom: 1em;
+	margin-top: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+
+.or_wjxx_view_css {
+	margin-top: .5em;
+	margin-bottom: 1em;
+	font-size: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #6e6e6e;
+}
+
+.or_wjxx_view2_css {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1em;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #6e6e6e;
+}
+
+.type_img_css {
+	width: 4em;
+	height: 4em;
+	margin-left: 1em;
+	flex-shrink: 0;
+}
+
+.buu_view_css {
+	display: flex;
+	margin-left: auto;
+}
+
+.buu_css {
+	background-color: #4A74EE;
+	color: #FFF;
+	margin-right: 1em;
+	margin-left: auto;
+}
+
+.buu_sc_css {
+	background-color: #ee0003;
+	color: #FFF;
+	margin-right: 1em;
+}
+
+.wenku_dp_n_view_css {
+	width: 70%;
+	font-size: 1em;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+}
+
+.wenku_name {
+	font-weight: bold;
+	margin-left: .5em;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 80%;
+}
+
+.or_wu_view_css {
+	justify-content: center;
+	margin-top: 1.2em;
+	font-weight: bold;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	color: #6e6e6e;
+}
+
+.icon-dianpu:before {
+	content: "\e62e";
+	color: #4A74EE;
+	font-size: 1.4em;
+}
+
+.list_qianjin_css {
+	flex: 1;
+	text-align: right;
+	margin-right: 1em;
+}
+
+.icon-qianjin:before {
+	content: "\e614";
+	color: #4A74EE;
+	font-size: 1.2em;
+}
+
+scroll-view {
+	height: calc(100vh - 100rpx);
+}
+
+.formx {
+	position: absolute;
+	bottom: 4em;
+	left: .5em;
+}
+
+.formx_up {
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.4);
+	display: flex;
+	justify-content: center;
+}
+
+.formx_up_img {
+	width: 100%;
+	height: 100%;
+}

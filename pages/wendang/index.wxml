@@ -1,0 +1,82 @@
+<wxs src="f.wxs" module="f" />
+
+<scroll-view class="scroll-wrapper" scroll-x scroll-with-animation="true"
+	scroll-into-view="item{{currentTab < 4 ? 0 : currentTab - 3}}">
+	<view class="navigate-item" id="item{{index}}" wx:for="{{taskList}}" wx:key="index" data-index="{{index}}"
+		bindtap="handleClick">
+		<view class="names {{currentTab === index ? 'active' : ''}}">{{item.name}}</view>
+		<view class="currtline {{currentTab === index ? 'active' : ''}}"></view>
+	</view>
+</scroll-view>
+
+<scroll-view class="scroll-wrapper" scroll-x scroll-with-animation="true" wx:if="{{currentTab == 0}}"
+	scroll-into-view="item{{TypeC < 4 ? 0 : currentTab - 3}}">
+	<view class="navigate-item" id="item{{index}}" wx:for="{{taskTypeList}}" wx:key="index" data-index="{{index}}"
+		bindtap="handleTypeClick">
+		<view class="names {{TypeC === index ? 'active' : ''}}">{{item.name}}</view>
+		<view class="currtline {{TypeC === index ? 'active' : ''}}"></view>
+	</view>
+</scroll-view>
+
+<swiper indicator-dots="{{false}}" bindchange="handleSwiper" current="{{currentTab}}">
+	<block wx:for="{{taskList}}" wx:key="idx">
+		<swiper-item style="overflow: scroll;">
+			<scroll-view scroll-y refresher-enabled refresher-background="#F6F7F8" refresher-triggered="{{isRefresh}}"
+				bindrefresherrefresh="refresherpulling" bindscrolltolower="handleTolower">
+				<view class="or_wu_view_css" hidden="{{wudingdao}}">
+					<span>暂无文库记录</span>
+				</view>
+				<view class="swiper-item" wx:for="{{or_list}}" wx:for-item="item" wx:key="index">
+
+					<view class="wenku_view_css" wx:if="{{currentTab == 0}}">
+						<view class="wenku_dp_view_css">
+							<image src="{{f.get_type(item.type,1)}}" class="type_img_css" />
+							<view class="wenku_dp_n_view_css">
+								<view class="wenku_name">{{item.name}}</view>
+								<span
+									style="margin-top:1em;font-weight: bold;color: #ff8800;margin-left: .5em;">{{f.get_mo(item.mo)}}</span>
+							</view>
+						</view>
+						<view class="or_wjxx_view_css">
+							<!-- <span style="position: relative; font-size: .8em;margin-left: 1.5em;">查看:{{item.ck_s}}</span> -->
+							<span style="position: relative; font-size: .8em;margin-left: 1em;" data-yid="{{item.id}}"
+								bindtap="get_bin">打印:{{item.dy_s}}人</span>
+							<span style="position: relative; font-size: .8em;margin-left: 1em;">共{{item.page}}页</span>
+							<view class="buu_view_css">
+								<button class="buu_css" size="mini" data-yid="{{item.id}}" bindtap="get_bin">打印</button>
+								<button class="buu_sc_css" size="mini" data-yid="{{item.id}}"
+									wx:if="{{uid == item.uid}}" bindtap="sc_bin">删除</button>
+							</view>
+						</view>
+					</view>
+					<view class="wenku_view_css" wx:if="{{currentTab == 1}}">
+						<view class="wenku_dp_view2_css">
+							<image src="{{f.get_type(item.type,1)}}" class="type_img_css" />
+							<view class="wenku_dp_n_view_css">
+								<view class="wenku_dp_n_n_view_css">
+									<span
+										style="font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{item.name}}</span>
+								</view>
+							</view>
+						</view>
+
+						<view class="or_wjxx_view2_css">
+							<view class="buu_view_css">
+								<button class="buu_css" size="mini" data-yid="{{item.id}}" bindtap="get_bin">打印</button>
+								<button class="buu_sc_css" size="mini" data-yid="{{item.id}}"
+									bindtap="sc_bin">删除</button>
+							</view>
+						</view>
+					</view>
+
+				</view>
+			</scroll-view>
+		</swiper-item>
+	</block>
+</swiper>
+
+<view class="formx">
+	<view class="formx_up" bindtap="tapUp">
+		<image src="/images/up.png" class="formx_up_img" />
+	</view>
+</view>

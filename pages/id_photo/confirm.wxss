@@ -1,0 +1,246 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-thumb,
+.photo-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.photo-thumb image {
+    width: 150px;
+}
+
+.index_tab .bottom_scroll {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 83rpx;
+}
+
+.index_tab .bottom_scroll .nav {
+    width: 33.333%;
+    display: inline-block;
+    white-space: normal;
+    text-align: center;
+    color: #6f7580;
+    font-size: 30rpx;
+    position: relative;
+}
+
+.index_tab .cur {
+    font-size: 32rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.index_tab .cur span {
+    width: 50rpx;
+    height: 8rpx;
+    border-radius: 5rpx;
+    background: #ff8700;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1px;
+}
+
+.co {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.meiyan_view {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.meiyan_view_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+
+.icon-meiyan:before {
+    content: "\e664";
+    /* // 这里可以控制图标大小和颜色 */
+    color: var(--meiyan_zhi_co);
+    font-size: 2em;
+}
+
+.icon-meiyan-wu:before {
+    content: "\e625";
+    /* // 这里可以控制图标大小和颜色 */
+    color: var(--meiyan_wu_co);
+    font-size: 2em;
+}
+
+
+
+.meiyan_img {
+    background-color: #FFFFFF;
+    height: 2.8em;
+    width: 2.8em;
+    padding: .4em;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--meiyan_wu_co);
+}
+
+.meiyan_img_s {
+    background-color: #FFFFFF;
+    height: 2.8em;
+    width: 2.8em;
+    padding: .4em;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--meiyan_zhi_co);
+}
+
+.btn_2 {
+    background-color: #FFFFFF;
+    width: 100%;
+    padding: 1em;
+    box-shadow: 0px 7px 7px -7px #5E5E5E;
+    
+    position:fixed;
+    bottom:0
+}
+
+.huanz_view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.huanz_view_2 {
+    margin-left: .4em;
+}
+
+.huanzhuan_img {
+    border-radius: 5px;
+    overflow: hidden;
+    height: 6em;
+    width: 7em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6e6e6e;
+}
+
+.huanz_view_3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.huanz_view_3 span {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    color: #6e6e6e;
+}
+
+.co view view {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6e6e6e;
+    width: 3em;
+    height: 3em;
+    border-radius: 30px;
+}
+
+.btn-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bit_an{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1em;
+}
+.btn_class {
+    width: 100%;
+}
+
+.btn-confirm {
+    text-align: center;
+    /* width: 80%; */
+    background-color: #4A74EE;
+    color: #FFF;
+    border-radius: 50px;
+    line-height: 1;
+    padding: 15px;
+}
+
+.btn-reset {
+    padding: 15px 0;
+    color: gray;
+}
+
+.download-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.btn-downloadA {
+    text-align: center;
+    background-color: #4A74EE;
+    color: #FFF;
+    border-radius: 50px;
+    line-height: 1;
+    padding: 15px 10px;
+    width: 40%;
+}
+.btn-downloadB {
+    text-align: center;
+    background-color: #ff0000;
+    color: #FFF;
+    border-radius: 50px;
+    line-height: 1;
+    padding: 15px 10px;
+    width: 40%;
+}
+.tips {
+    padding: 0 20px 10px;
+    color: #FF0000;
+}
+
+.tips-header {
+    text-align: center;
+}

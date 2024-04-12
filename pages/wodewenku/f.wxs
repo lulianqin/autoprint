@@ -1,0 +1,54 @@
+var get_type = function (int, type) {
+  if (int == 1) {
+    if (type == 1) return '/images/ico/word.png';
+    return 'doc';
+  }
+  if (int == 2) {
+    if (type == 1) return '/images/ico/word.png';
+    return 'docx';
+  }
+  if (int == 3) {
+    if (type == 1) return '/images/ico/excel.png';
+    return 'xls';
+  }
+  if (int == 4) {
+    if (type == 1) return '/images/ico/excel.png';
+    return 'xlsx';
+  }
+  if (int == 5) {
+    if (type == 1) return '/images/ico/ppt.png';
+    return 'ppt';
+  }
+  if (int == 6) {
+    if (type == 1) return '/images/ico/ppt.png';
+    return 'pptx';
+  }
+  if (int == 7) {
+    if (type == 1) return '/images/ico/pdf.png';
+    return 'pdf';
+  }
+}
+
+var get_mo = function (mo) {
+  if (mo > 0) {
+    var f = parseFloat(mo);
+    if (!isNaN(f)) {
+      var f = Math.round(mo * 100) / 100;
+      var s = f.toString();
+      var rs = s.indexOf('.');
+      if (rs < 0) {
+        rs = s.length;
+        s += '.';
+      }
+      while (s.length <= rs + 2) {
+        s += '0';
+      }
+    }
+    return s + '元';
+  }
+  return '免费';
+}
+module.exports = {
+  get_type: get_type,
+  get_mo: get_mo
+};

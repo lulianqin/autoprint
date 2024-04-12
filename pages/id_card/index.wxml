@@ -1,0 +1,51 @@
+<view class="top">
+	<view class="position">
+		<view class="info">
+			<view>
+				<view class="iconfont icon-position" style="padding-right:5px;"></view>
+				<text>{{printer_name}}</text>
+			</view>
+			<view class="iconfont icon-right"></view>
+		</view>
+	</view>
+</view>
+<view class="box-1">
+	<navigator url="../print_list/index" open-type="redirect" class="item">
+		<image src="../../images/print_list@2x.png" mode="widthFix"></image>
+		<text>打印列表</text>
+	</navigator>
+	<navigator url="../shop/index" class="item">
+		<image src="../../images/nearby@2x.png" mode="widthFix"></image>
+		<text>附近打印点</text>
+	</navigator>
+</view>
+<view class="box-2">
+	<view class="title">
+		<text class="text">上传身份证照</text>
+		<text class="e_text">UPLOAD ID CARD</text>
+	</view>
+	<view class="box-id-card">
+		<view class="id-card-preview">
+            <image src="{{src1}}" mode="widthFix" bindtap="idCardSelect" data-side="1"></image>
+            <view class="add-file" bindtap="idCardSelect" data-side="1" hidden="{{hideSide1}}">
+                <view class="iconfont icon-addphoto"></view>
+            </view>
+        </view>
+		<view class="id-card-preview">
+            <image src="{{src2}}" mode="widthFix" bindtap="idCardSelect" data-side="2"></image>
+            <view class="add-file" bindtap="idCardSelect" data-side="2" hidden="{{hideSide2}}">
+                <view class="iconfont icon-addphoto"></view>
+            </view>
+        </view>
+	</view>
+</view>
+<view >
+	<ad wx:if="{{video}}" unit-id="{{video}}" ad-type="video" ad-theme="white"></ad>
+</view>
+<view class="tips">
+	<view>1、手机纵向拍照扫描并保持手机与被拍摄物水平,拍摄完成后点击原图确定</view>
+    <view>2、正反面会自动拼接在一张纸上</view>
+    <view>3、完成打印后，信息将从服务器删除，请放心使用</view>
+</view>
+<view bindtap="process" class="upload-done">完成上传</view>
+<view class="blank100"></view>

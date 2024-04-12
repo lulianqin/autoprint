@@ -1,0 +1,98 @@
+.top {
+    background: linear-gradient(to right, #6C67FF 0%, #3CA5FE 100%);
+    position: relative;
+    padding: 10px 0 50px;
+}
+
+.position {
+    margin-top: 0;
+
+}
+
+.position .info {
+    background: none;
+    color: #FFF;
+}
+
+.box-1 {
+    position: relative;
+    top: -20px;
+    z-index: 11;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.box-1 .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    border-radius: 15px;
+    background-color: #FFF;
+    padding: 10px 0;
+}
+
+.box-1 .item image {
+    width: 30px;
+}
+
+.box-1 .item text {
+    padding-left: 5px;
+}
+
+.title {
+    padding: 20px;
+}
+
+.title .text {
+    font-weight: bold;
+    font-size: 18px;
+}
+.title .e_text {
+    font-size: 10px;
+    color: #333333;
+    padding-left: 5px;
+}
+.box-3 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.box-3 .item {
+    width: 40%;
+    background-color: #FFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px 6px #eee;
+    padding: 10px;
+    font-size: 18px;
+}
+.box-3 .item .text {margin-left: 10px;}
+.instructions {
+    padding: 0 10px 20px;
+}
+.instructions image {
+    width: 100%;
+}
+
+.select-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    
+}
+.select-icon image {
+    width: 30px;
+}

@@ -1,0 +1,46 @@
+<wxs src="f.wxs" module="f" />
+
+<view style="width: 100vw;height: 100vh;position: absolute;">
+	<view class="uppop" wx:if="{{showUpPop}}">
+		<view class="uppopmake" bindtap="tapquxiao"></view>
+		<view class="uppop_exit_view">
+			<view class="uppop_title">
+				{{uppop_title}}
+			</view>
+			<view class="uppop_inp">
+				<input type='text' placeholder='输入文件夹名称' bindinput='setNameText'></input>
+			</view>
+			<view class="uppop_button_view">
+				<view class="bin" bindtap="tapqueren">确认</view>
+				<view class="bin" bindtap="tapquxiao">取消</view>
+			</view>
+		</view>
+	</view>
+	<view class="wenku_view_css" id="item{{index}}" wx:for="{{taskList}}" wx:key="index" data-index="{{index}}">
+		<view class="wenku_dp_view_css">
+			<image src="{{f.get_re_type(item.type,1)}}" class="type_img_css" style="width: 5em;height: 4em;" />
+			<view class="wenku_dp_n_view_css">
+				<view class="wenku_name">{{item.name}}</view>
+			</view>
+		</view>
+		<view style="width: 100%;height: 100%;position: absolute;" data-yid="{{item.id}}" bindtap="listClick"></view>
+		<view class="or_wjxx_view2_css" wx:if="{{currentTab == 1}}">
+			<view class="buu_view_css">
+				<button class="buu_css" size="mini" data-yid="{{item.id}}" bindtap="get_cmm">重命名</button>
+				<button class="buu_sc_css" size="mini" data-yid="{{item.id}}" bindtap="sc_bin">删除</button>
+			</view>
+		</view>
+	</view>
+
+	<view class="or_wu_view_css" wx:if="{{taskList.length <= 0}}">
+		<span>暂无文库记录</span>
+	</view>
+
+
+	<view class="formx" wx:if="{{currentTab == 1}}">
+		<view class="formx_up" bindtap="tapAdd">
+			<image src="/images/ico/add.png" class="formx_up_img" />
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,87 @@
+var get_st = function (st) {
+  if (st == "1") {
+    return "付款完成";
+  } else {
+    return "未知";
+  }
+}
+var get_ico = function (name) {
+  switch (name.split(".").pop().toLowerCase()) {
+    case "doc":
+      return "icon-doc";
+    case "docx":
+      return "icon-doc";
+    case "xls":
+      return "icon-xls";
+    case "xlsx":
+      return "icon-xls";
+    case "ppt":
+      return "icon-ppt";
+    case "pptx":
+      return "icon-ppt";
+    case "pdf":
+      return "icon-pdf";
+    case "jpg":
+      console.log(name);
+      return "icon-img";
+    case "png":
+      console.log(name);
+      return "icon-img";
+    case "jpeg":
+      return "icon-img";
+    default:
+      break;
+  }
+}
+var get_zt = function (st,dy,rt) {
+  if (st == "1" && dy == "0" && rt == 0) {
+    return "未打印";
+  } else if (dy == "1" && rt == 0) {
+    return "待打印";
+  } else if (dy == "2" && rt == 0){
+    return "已打印";
+  } else if (dy == "3" && rt == 0){
+    return "发送中";
+  } else if (dy == "4" && rt == 0){
+    return "解析中";
+  } else if (dy == "5" && rt == 0){
+    return "排队中";
+  } else if (dy == "6" && rt == 0){
+    return "打印失败";
+  } else if (dy == "7" && rt == 0){
+    return "正在撤回";
+  } else if (dy == "8" && rt == 0){
+    return "已撤回";
+  } else if (rt == "1"){
+    return "待审核";
+  } else if (rt == "2"){
+    return "已驳回";
+  } else if (rt == "5"){
+    return "退款中";
+  } else if (rt == "3"){
+    return "已退款";
+  } else if (rt == "4"){
+    return "退款异常";
+  }else {
+    return "未知";
+  }
+}
+var get_dy = function (st) {
+  if (st == "1") {
+    return "待打印";
+  } else if (st == "2"){
+    return "打印完成";
+  } else {
+    return "未知";
+  }
+}
+var get_mo = function (mo) {
+  return mo / 100;
+}
+module.exports = {
+  get_dy: get_dy,
+  get_st: get_st,
+  get_mo: get_mo,
+  get_zt: get_zt,
+  get_ico:get_ico
+};
